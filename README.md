@@ -1,6 +1,48 @@
 # Embergency
 HackDavis 2025 Project :)
 
+## Running Locally
+
+### 1. Get free API keys
+
+| Service | What it's used for | Sign-up link |
+|---|---|---|
+| **OpenWeatherMap** | City → lat/lon geocoding | https://home.openweathermap.org/users/sign_up |
+| **Xweather** | Nearest active wildfire data | https://signup.xweather.com/developer |
+| **Unwired Labs** | Cell tower reverse geocoding | https://my.unwiredlabs.com/trial |
+
+All three have free tiers that are sufficient to run this project.
+
+### 2. Configure your keys
+
+Copy the example env file and fill in your keys:
+
+```bash
+cp .env.example .env
+```
+
+Then open `.env` and replace the placeholders with your actual keys:
+
+```
+VITE_OWM_API_KEY=your_openweathermap_api_key
+VITE_XWEATHER_CLIENT_ID=your_xweather_client_id
+VITE_XWEATHER_CLIENT_SECRET=your_xweather_client_secret
+VITE_UNWIREDLABS_TOKEN=your_unwiredlabs_token
+```
+
+### 3. Install and run
+
+```bash
+npm install
+npm run dev
+```
+
+The app will be available at `http://localhost:5173`.
+
+> **Note:** Never commit your `.env` file — it's listed in `.gitignore` to keep your keys private.
+
+---
+
 Inspiration:
 After hearing about the California GovOps challenge, our minds instantly went to addressing the invisible threat of compromised communications during wildfires. For example, during California’s Camp Fire of 2018, 17 cell towers were downed, greatly interfering with the ability for citizens to stay updated during the dangerous situation. This remains an issue to this day, as in 2021, “56% of the 4,272 emergency alert calls in the first hours of the Paradise fire failed,” leading to the death of 85 Californian citizens. To address this, we wanted to make an application that could make it easy for those to know whether or not their communications lines are in danger of being compromised by a raging fire.
 

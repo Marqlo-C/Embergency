@@ -1,6 +1,6 @@
 
 // api key for openweathermap
-const apiKey = "fe11269642f5903ee1eb4420bff1325c";
+const apiKey = import.meta.env.VITE_OWM_API_KEY;
 
 // urls for openweathermap
 const geocodingUrl = "http://api.openweathermap.org/geo/1.0/direct?q=";
@@ -22,8 +22,8 @@ async function getLatLon(city) {
 }
 
 async function getNearestFire(lat, lon) {
-  const clientId = "6fCUjCrT6W8W0oipoluXT";
-  const clientSecret = "eeWaGLGokBM8kI6jOJSFTM9V3YYQudZgvnjTu8GZ";
+  const clientId = import.meta.env.VITE_XWEATHER_CLIENT_ID;
+  const clientSecret = import.meta.env.VITE_XWEATHER_CLIENT_SECRET;
   const place = lat + "," + lon;
   const url = "https://data.api.xweather.com/fires/closest?p=" + place + "&format=json&client_id=" + clientId + "&client_secret=" + clientSecret;
 
@@ -47,7 +47,7 @@ async function getNearestFire(lat, lon) {
 }
 
 async function getCellTowers(currLat, currLon) {
-  const cellKey = "pk.6a506f9a0920ecfe1b4de988bbf2a48e";
+  const cellKey = import.meta.env.VITE_UNWIREDLABS_TOKEN;
   const cellTowerUrl = "https://us1.unwiredlabs.com/v2/reverse?token=" + cellKey + "&lat=" + currLat + "&lon=" + currLon;
   
   try {
